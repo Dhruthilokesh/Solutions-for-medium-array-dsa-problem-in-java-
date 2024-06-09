@@ -1,0 +1,25 @@
+import java.util.*;
+public class Solution {
+    public static int longestSuccessiveElements(int []arr) {
+             int n = arr.length;
+             if(n==0)
+             return 0;
+             Arrays.sort(arr);
+             int count = 0; 
+             int smaller = Integer.MIN_VALUE; 
+            int longest = 1; 
+             for(int i = 0 ; i< n;i++){
+                 if(arr[i] -1 == smaller){
+                     count++;
+                     smaller = arr[i];
+                 }
+                 else if(arr[i] != smaller){
+                     count = 1;
+                     smaller = arr[i];
+                 }
+               longest = Integer.max(longest, count);
+             } 
+         return longest;
+    }
+   
+}
